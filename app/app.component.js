@@ -12,6 +12,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     };
     var core_1;
     var AppComponent;
+    function statement() {
+    }
     return {
         setters:[
             function (core_1_1) {
@@ -20,11 +22,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.isDirty = false;
+                    this.input = {
+                        value: 'Type here please'
+                    };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<input class="angular-clearable-input" />'
+                        template: '<input [(ngModel)]="input.value" placeholder="name" class="angular-clearable-input" (focus)="statement()" /><p>{{input.value}}<p>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
