@@ -12,8 +12,6 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     };
     var core_1;
     var AppComponent;
-    function statement() {
-    }
     return {
         setters:[
             function (core_1_1) {
@@ -24,13 +22,23 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function AppComponent() {
                     this.isDirty = false;
                     this.input = {
-                        value: 'Type here please'
+                        defaultValue: 'Type here please',
+                        value: ''
                     };
                 }
+                AppComponent.prototype.onKeyUp = function (value) {
+                    console.log('onKeyUp: ', value);
+                };
+                AppComponent.prototype.onFocus = function (value) {
+                    console.log('onFocus: ', value);
+                };
+                AppComponent.prototype.onBlur = function (value) {
+                    console.log('onBlur: ', value);
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<input [(ngModel)]="input.value" placeholder="name" class="angular-clearable-input" (focus)="statement()" /><p>{{input.value}}<p>'
+                        template: '<input #box [(ngModel)]="input.value" placeholder="name" class="angular-clearable-input" (focus)="onFocus(box.value)" (keyup)="onKeyUp(box.value)" (blur)="onBlur(box.value)" /><p>{{input.value}}<p>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
