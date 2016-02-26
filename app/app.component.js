@@ -19,8 +19,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(renderer, element) {
                     this.placeholder = 'Type some text';
+                    this.renderer = renderer;
+                    this.element = element;
                 }
                 AppComponent.prototype.onKeyUp = function () {
                     console.log('onKeyUp: ', this.inputModel);
@@ -33,10 +35,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 };
                 AppComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
+                        selector: 'clearable-input',
                         templateUrl: './app/app.component.template.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
                 ], AppComponent);
                 return AppComponent;
             }());

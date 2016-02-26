@@ -1,14 +1,20 @@
-import {Component} from 'angular2/core';
+import {Component, Renderer, ElementRef} from 'angular2/core';
 
 @Component({
-	selector: 'my-app',
+	selector: 'clearable-input',
 	templateUrl: './app/app.component.template.html'
 })
 
 export class AppComponent {
-	inputModel;
+	private inputModel: string;
+	private placeholder: string = 'Type some text';
+	private renderer: Renderer;
+	private element: ElementRef;
 
-	placeholder:string = 'Type some text';
+	constructor(renderer: Renderer, element: ElementRef){
+		this.renderer = renderer;
+		this.element = element;
+	}
 
 	onKeyUp() {
 		console.log('onKeyUp: ', this.inputModel);
