@@ -2,25 +2,23 @@ import {Component} from 'angular2/core';
 
 @Component({
 	selector: 'my-app',
-	template: '<input #box [(ngModel)]="input.value" placeholder="name" class="angular-clearable-input" (focus)="onFocus(box.value)" (keyup)="onKeyUp(box.value)" (blur)="onBlur(box.value)" /><p>{{input.value}}<p>'
+	templateUrl: './app/app.component.template.html'
 })
+
 export class AppComponent {
-	isDirty = false;
+	inputModel;
 
-	public input: Input = {
-     defaultValue: 'Type here please',
-		 value: ''
-  };
+	placeholder:string = 'Type some text';
 
-	onKeyUp(value:string) {
-		console.log('onKeyUp: ', value);
+	onKeyUp() {
+		console.log('onKeyUp: ', this.inputModel);
   }
 
-	onFocus(value:string){
-		console.log('onFocus: ', value);
+	onFocus(){
+		console.log('this.inputModel: ', this.inputModel);
 	}
 
-	onBlur(value:string){
-		console.log('onBlur: ', value);
+	onBlur(){
+		console.log('onBlur: ', this.inputModel);
 	}
 }

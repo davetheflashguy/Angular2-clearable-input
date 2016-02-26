@@ -20,25 +20,21 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.isDirty = false;
-                    this.input = {
-                        defaultValue: 'Type here please',
-                        value: ''
-                    };
+                    this.placeholder = 'Type some text';
                 }
-                AppComponent.prototype.onKeyUp = function (value) {
-                    console.log('onKeyUp: ', value);
+                AppComponent.prototype.onKeyUp = function () {
+                    console.log('onKeyUp: ', this.inputModel);
                 };
-                AppComponent.prototype.onFocus = function (value) {
-                    console.log('onFocus: ', value);
+                AppComponent.prototype.onFocus = function () {
+                    console.log('this.inputModel: ', this.inputModel);
                 };
-                AppComponent.prototype.onBlur = function (value) {
-                    console.log('onBlur: ', value);
+                AppComponent.prototype.onBlur = function () {
+                    console.log('onBlur: ', this.inputModel);
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<input #box [(ngModel)]="input.value" placeholder="name" class="angular-clearable-input" (focus)="onFocus(box.value)" (keyup)="onKeyUp(box.value)" (blur)="onBlur(box.value)" /><p>{{input.value}}<p>'
+                        templateUrl: './app/app.component.template.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
