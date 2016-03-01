@@ -1,20 +1,16 @@
-.container {
-  display: block;
-  padding: 20px;
-}
-
-.container.main {
-  width: 400px;
-}
-
 clearable-input {
   position: relative;
 }
 
 .clearable-input {
-  display: block;
+  width: 300px;
   padding: 6px 12px;
   border-radius: 4px;
+  height: 34px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
 }
 
 .close-icon {
@@ -32,17 +28,18 @@ clearable-input {
 	width: 15px;
 	height: 15px;
 	position: absolute;
-	background-color: #FA9595;
+	background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 3px;
 	z-index:1;
-	right: 20px;
+	right: 12px;
 	top: 0;
 	bottom: 0;
 	margin: auto;
 	border-radius: 50%;
 	text-align: center;
-	color: white;
+	color: #555;
 	font-weight: normal;
 	font-size: 12px;
-	box-shadow: 0 0 2px #E50F0F;
 	cursor: pointer;
 }
