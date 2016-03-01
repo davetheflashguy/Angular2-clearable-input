@@ -20,11 +20,20 @@ export class AppComponent {
 		console.log('onKeyUp: ', this.inputModel);
   }
 
+	onKeyDown() {
+		console.log('this.inputModel: ', this.inputModel);
+	}
+
 	onFocus(){
 		console.log('this.inputModel: ', this.inputModel);
 	}
 
 	onBlur(){
 		console.log('onBlur: ', this.inputModel);
+	}
+
+	clearInput(){
+		this.inputModel = "";
+		console.log('clearing input');
 	}
 }

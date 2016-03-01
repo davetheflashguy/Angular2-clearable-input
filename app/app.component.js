@@ -27,11 +27,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AppComponent.prototype.onKeyUp = function () {
                     console.log('onKeyUp: ', this.inputModel);
                 };
+                AppComponent.prototype.onKeyDown = function () {
+                    console.log('this.inputModel: ', this.inputModel);
+                };
                 AppComponent.prototype.onFocus = function () {
                     console.log('this.inputModel: ', this.inputModel);
                 };
                 AppComponent.prototype.onBlur = function () {
                     console.log('onBlur: ', this.inputModel);
+                };
+                AppComponent.prototype.clearInput = function () {
+                    this.inputModel = "";
+                    console.log('clearing input');
                 };
                 AppComponent = __decorate([
                     core_1.Component({

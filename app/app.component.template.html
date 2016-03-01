@@ -1,2 +1,2 @@
-<input #box [(ngModel)]="inputModel" placeholder="{{placeholder}}" class="clearable-input" (focus)="onFocus()" (keyup)="onKeyUp()" (blur)="onBlur()" />
-<div class="close-icon"></div>
+<input #box [(ngModel)]="inputModel" placeholder="{{placeholder}}" class="clearable-input" (focus)="onFocus()" (keyup)="onKeyUp()" (keydown)="onKeyDown()" (blur)="onBlur()" />
+<div class="close-icon" (click)="clearInput()"></div>
