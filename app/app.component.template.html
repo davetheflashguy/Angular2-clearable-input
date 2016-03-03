@@ -1,2 +1,2 @@
 <input #box [(ngModel)]="inputModel" placeholder="{{placeholder}}" class="clearable-input" (focus)="onFocus()" (keyup)="onKeyUp()" (keydown)="onKeyDown()" (blur)="onBlur()" />
-<div class="close-icon" (click)="clearInput()"></div>
+<div class="close-icon" (click)="clearInput()" [ngClass]="{active: isOn}"></div>

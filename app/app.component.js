@@ -23,22 +23,36 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.placeholder = 'Type some text';
                     this.renderer = renderer;
                     this.element = element;
+                    this.isOn = false;
                 }
                 AppComponent.prototype.onKeyUp = function () {
-                    console.log('onKeyUp: ', this.inputModel);
+                    this.checkClearState();
                 };
                 AppComponent.prototype.onKeyDown = function () {
-                    console.log('this.inputModel: ', this.inputModel);
+                    this.checkClearState();
                 };
                 AppComponent.prototype.onFocus = function () {
-                    console.log('this.inputModel: ', this.inputModel);
+                    this.checkClearState();
                 };
                 AppComponent.prototype.onBlur = function () {
-                    console.log('onBlur: ', this.inputModel);
+                    this.checkClearState();
                 };
                 AppComponent.prototype.clearInput = function () {
+                    this.resetInput();
+                };
+                AppComponent.prototype.resetInput = function () {
                     this.inputModel = "";
-                    console.log('clearing input');
+                    this.checkClearState();
+                };
+                AppComponent.prototype.checkClearState = function () {
+                    if (typeof (this.inputModel) !== 'undefined') {
+                        if (this.inputModel.length > 0) {
+                            this.isOn = true;
+                        }
+                        else {
+                            this.isOn = false;
+                        }
+                    }
                 };
                 AppComponent = __decorate([
                     core_1.Component({

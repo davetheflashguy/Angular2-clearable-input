@@ -16,7 +16,7 @@ clearable-input {
 .close-icon {
 	border:1px solid transparent;
 	background-color: transparent;
-	display: inline-block;
+	display: none;
 	vertical-align: middle;
   outline: 0;
   cursor: pointer;
@@ -42,4 +42,8 @@ clearable-input {
 	font-weight: normal;
 	font-size: 12px;
 	cursor: pointer;
+}
+
+.active {
+  display: inline-block;
 }

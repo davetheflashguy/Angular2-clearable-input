@@ -1,4 +1,5 @@
 import {Component, Renderer, ElementRef} from 'angular2/core';
+import {NgClass} from 'angular2/common';
 
 @Component({
 	selector: 'clearable-input',
@@ -10,30 +11,48 @@ export class AppComponent {
 	private placeholder: string = 'Type some text';
 	private renderer: Renderer;
 	private element: ElementRef;
+	private isOn: Boolean;
 
 	constructor(renderer: Renderer, element: ElementRef){
 		this.renderer = renderer;
 		this.element = element;
+		this.isOn = false;
 	}
 
-	onKeyUp() {
-		console.log('onKeyUp: ', this.inputModel);
+	public onKeyUp() {
+		this.checkClearState();
   }
 
-	onKeyDown() {
-		console.log('this.inputModel: ', this.inputModel);
+	public onKeyDown() {
+		this.checkClearState();
 	}
 
-	onFocus(){
-		console.log('this.inputModel: ', this.inputModel);
+	public onFocus(){
+		this.checkClearState();
 	}
 
-	onBlur(){
-		console.log('onBlur: ', this.inputModel);
+	public onBlur(){
+		this.checkClearState();
 	}
 
-	clearInput(){
+	public clearInput(){
+		this.resetInput();
+	}
+
+	private resetInput() {
 		this.inputModel = "";
-		console.log('clearing input');
+		this.checkClearState();
 	}
+
+	private checkClearState() {
+		if (typeof(this.inputModel) !== 'undefined') {
+			if (this.inputModel.length > 0) {
+				this.isOn = true;
+			}
+			else {
+				this.isOn = false;
+			}
+		}
+	}
+
 }
